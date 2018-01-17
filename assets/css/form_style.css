@@ -1,0 +1,219 @@
+body {
+    font-family: arial,verdana,sans-serif;
+    color:#333333;
+    font-size:13px;
+    margin: 0 auto;
+    background: #fff;
+    }
+ 
+#wrapper {
+    margin: 0 auto;
+    position: relative;
+    background:#FFFFFF;
+    width: 900px;
+    border:10px solid #eaeaea;
+    }
+ 
+#form {
+    padding: 10px;
+    }
+ 
+#form .field {
+    margin-bottom:18px;
+    }
+ 
+#form label{
+    display: block;
+    float: left;
+    font-weight: bold;
+    margin-right:10px;
+    text-align: right;
+    width: 179px;
+    line-height: 35px;
+    font-size:14px;
+    cursor: pointer;
+    }
+ 
+#form .checkbox{
+    margin-top:10px;
+    }
+ .ui-autocomplete-loading {
+  background: #fff url('../img/cargando2.gif') right center no-repeat !important;
+}
+#form .input{
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    background-color: #eaeaea;
+    background: -moz-linear-gradient(top, #ffffff, #f2f2f2);
+    background: -webkit-gradient(linear, left top, left bottom,
+                color-stop(0.0, #ffffff), color-stop(1.0, #f2f2f2));
+    border: 1px solid #cacaca;
+    font-family: inherit;
+    color: #797979;
+    font-size: 15px;
+    padding: 4px 5px;
+    width: 200px;
+    font-weight: bold;
+    }
+
+#form .input1{
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    background-color: #eaeaea;
+    background: -moz-linear-gradient(top, #ffffff, #f2f2f2);
+    background: -webkit-gradient(linear, left top, left bottom,
+                color-stop(0.0, #ffffff), color-stop(1.0, #f2f2f2));
+    border: 1px solid #cacaca;
+    font-family: inherit;
+    color: #797979;
+    font-size: 15px;
+    padding: 4px 5px;
+    width: 200px;
+    font-weight: bold;
+    }
+ 
+#form .state{
+    border: 1px solid #b9bdc1;
+    padding: 5px;
+    font-size: 15px;
+    font-family: inherit;
+    font-weight: bold;
+    color: #797979;
+    }
+ 
+#form :focus{
+    -webkit-box-shadow: 0px 0px 4px #aaa;
+    -moz-box-shadow: 0px 0px 4px #aaa;
+    box-shadow: 0px 0px 4px #aaa;
+    }
+ 
+#form .gender-fields{
+    padding-top:10px;
+    }
+ 
+    #form  span.error {
+    color:red;
+    padding-left:10px;
+    }
+ 
+#form .info{
+    margin-left:130px;
+    font-size: 12px;
+    font-style:italic;
+    color: #999;
+    }
+ 
+#form .submit{
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    font-family: arial,verdana,sans-serif;
+    background-color: #dedede;
+    background: -moz-linear-gradient(top, #ffffff, #eaeaea);
+    background: -webkit-gradient(linear, left top, left bottom,
+                color-stop(0.0, #ffffff), color-stop(1.0, #eaeaea));
+    border: 1px solid #dedede;
+    color: #484848;
+    font-size:14px;
+    font-weight: bold;
+    padding: 8px 10px;
+    cursor: pointer;
+    /*margin-left:407px;*/
+    margin-top: 10px;
+    }
+ 
+/*-- Table design to display data in success view --*/
+ 
+#display_data{
+padding:10px;
+}
+ 
+#display_data .name{
+    font-style: italic;
+    text-decoration:underline;
+    }
+ 
+#display_data table{
+    border:1px solid #e5eff8;
+    margin:10px 0px;
+    border-collapse:collapse;
+    }
+ 
+#display_data tr.even{
+    background:#f7fbff
+    }
+ 
+#display_data tr.odd .title {
+    background:#f4f9fe;
+    }
+ 
+#display_data td {
+    border-bottom:1px solid #e5eff8;
+    border-right:1px solid #e5eff8;
+    color:#678197;
+    padding:5px 8px;
+    }
+ 
+#display_data td.title{
+    font-weight: bold;
+    width:100px;
+    text-align:right;
+    }
+ 
+#display_data td.info{
+    font-style: italic;
+    width:200px;
+    }
+ 
+#footer {
+    width:60%;
+    margin:20px auto;
+ 
+    }
+
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+.ui-timepicker-rtl{ direction: rtl; }
+.ui-timepicker-rtl dl { text-align: right; }
+.ui-timepicker-rtl dl dd { margin: 0 65px 10px 10px; }
+
+#project-label {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 1em;
+            }
+            #project-icon {
+                float: left;
+                height: 32px;
+                width: 32px;
+            }
+            #project-description {
+                margin: 0;
+                padding: 0;
+            }
+            form.cmxform { width: 50em; }
+            em.error {
+              background:url("images/unchecked.gif") no-repeat 0px 0px;
+              padding-left: 16px;
+            }
+            em.success {
+              background:url("images/checked.gif") no-repeat 0px 0px;
+              padding-left: 16px;
+            }
+
+            form.cmxform label.error {
+                margin-left: auto;
+                width: 250px;
+            }
+            form.cmxform input.submit {
+                margin-left: 0;
+            }
+            em.error { color: black; }
+            #warning { display: none; }
+            select.error {
+                border: 1px dotted red;
+            }
