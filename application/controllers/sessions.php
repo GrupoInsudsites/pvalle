@@ -26,6 +26,8 @@ class Sessions extends CI_Controller {
             $this->session->set_userdata('nombre', $user_data->nombre);
             
             $this->session->set_userdata('loggedin', true);
+        }else{
+            var_dump("expression");
         }
         redirect(base_url() . 'admin/informes/index');
     }

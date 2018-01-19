@@ -12,7 +12,7 @@ class Varios extends CI_Model {
      * @param campo_where
      * @param valor_where
      * @param limite
-     */
+     */ 
     function getItems($args=array()) {
         $arg = $args;
 

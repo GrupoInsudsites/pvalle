@@ -160,6 +160,7 @@ class Secciones extends MY_Controller {
         $data['items'] = $this->varios->getItems($args);
         $args=array('tabla'=>'secciones','campo'=>'id','valor'=>$id);
         $data['item'] = $this->varios->getItem($args);
+        
         $admin = $this->user->is_admin($this->session->userdata('id'));
         $data['menusel'] = "secciones";
         $data['menu_top'] = 'admin/menu_top';
