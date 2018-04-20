@@ -14,8 +14,12 @@
 | path to your installation.
 |
 */
-$config['base_url'] = 'http' . ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 's' : '')
-                      .'://'.$_SERVER['HTTP_HOST'].str_replace('//','/',dirname($_SERVER['SCRIPT_NAME']).'/'); 
+//$config['base_url'] = 'http' . ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 's' : '')
+ //                   .'://'.$_SERVER['HTTP_HOST'].str_replace('//','/',dirname($_SERVER['SCRIPT_NAME']).'/'); 
+ //                     
+
+$config['base_url'] = 'http://entradas.impregnadora.ar';
+
 /*
 |--------------------------------------------------------------------------
 | Index File
@@ -66,7 +70,7 @@ $config['url_suffix'] = '';
 |
 | This determines which set of language files should be used. Make sure
 | there is an available translation if you intend to use something other
-| than english.
+| than english. esta seguro que no modifi nada en configuraciones
 |
 */
 $config['language']	= 'english';

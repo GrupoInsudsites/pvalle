@@ -16,6 +16,7 @@ class Sessions extends CI_Controller {
     }
 
     function authenticate() {
+
         $this->load->model('administrador', '', true);
         $user = $this->input->post('user');
         
