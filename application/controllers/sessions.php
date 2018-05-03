@@ -25,7 +25,7 @@ class Sessions extends CI_Controller {
             $this->session->set_userdata('id', $user_data->id);
             $this->session->set_userdata('type', $user_data->type);
             $this->session->set_userdata('nombre', $user_data->nombre);
-            
+            $this->session->set_userdata('sede', $user_data->sede);
             $this->session->set_userdata('loggedin', true);
         }else{
             var_dump("expression");

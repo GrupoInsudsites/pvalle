@@ -30,7 +30,27 @@
             <td><input type="password" name="user[password]" class="text"  value="<?php echo $item->password; ?>" /></td>
         </tr>
         
-        
+        <tr>
+            <td width="172"><strong>Sede</strong></td>
+            <td>
+                <select style="width: 50%;"  name="user[sede]" class="form-control">
+                    <option value=""></option>
+                    <?php foreach ($sedes as $sede) {?>
+                        <option value="<?php echo $sede->id ;?>"><?php echo $sede->nombre ?></option>
+                    <?php } ?>
+                </select>
+            </td>
+        </tr>
+        <tr>
+          <td width ="172"><strong>Tipo de usuario</strong></td>
+            <td>
+                <select style="width: 50%;" name="user[type]" >
+                    <option value=""></option>
+                    <option value="1">Administrador</option>
+                    <option value="2">Jefe de sede</option>
+                </select>
+            </td>
+        </tr>
        
         
         <tr>

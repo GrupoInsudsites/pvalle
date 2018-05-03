@@ -22,6 +22,7 @@ class Sessions extends CI_Controller {
         if($user_data){    
             $this->session->set_userdata('id', $user_data->id);
             $this->session->set_userdata('type', $user_data->type);
+            $this->session->set_userdata('sede', $user_data->sede);
             $this->session->set_userdata('loggedin', true);
         }
         redirect(base_url() . 'admin/admin');
@@ -34,6 +35,7 @@ class Sessions extends CI_Controller {
         if ($user_data) {
             $this->session->set_userdata('id', $user_data->id);
             $this->session->set_userdata('type', $user_data->id);
+            $this->session->set_userdata('sede', $user_data->sede);
             $this->session->set_userdata('loggedin', true);
             redirect(base_url() . 'mapa');
         } else {

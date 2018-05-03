@@ -5,7 +5,7 @@ class Administrador extends CI_Model {
     public function authenticate($email, $password) {
             $hash = $this->_prep_password($password);
             //var_dump($hash);die;
-            $this->db->select('id,type,nombre,apellido');
+            $this->db->select('id,type,nombre,apellido,sede');
             $Q = $this->db->get_where('administradores', array('email' => $email, 'hash' =>$hash));
           //var_dump($this->db->last_query());die;
             if ($Q->num_rows() > 0) {
@@ -180,6 +180,8 @@ class Administrador extends CI_Model {
                 'nombre' => $u['nombre'],
                 'apellido' => $u['apellido'],
                 'password' => $u['password'],
+                'sede'  => $u['sede'],
+                'type'  => $u['type'],
                 'hash' => $hash
             );
 
@@ -190,12 +192,15 @@ class Administrador extends CI_Model {
     public function edicion(){
         $u = $this->input->post('user');
         $hash = $this->_prep_password($u['password']);
+        if($u['type'] == ''){$u['type'] = 1;}
         $data = array(
                 
                 'email' => $u['email'],
                 'nombre' => $u['nombre'],
                 'apellido' => $u['apellido'],
                 'password' => $u['password'],
+                'sede'  => $u['sede'],
+                'type'  => $u['type'],
                 'hash' => $hash
             );
         $this->db->where('id', $u['id']);

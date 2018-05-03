@@ -28,6 +28,7 @@ class Administradores extends MY_Controller {
         $submit = $this->input->post('submit');
         if ($submit != '') {
             $u = $this->input->post('user');
+            var_dump($u);
             $this->load->model('user');
 
             $existe = $this->varios->email_exists('administradores',$u['email']);
@@ -43,7 +44,7 @@ class Administradores extends MY_Controller {
         $data = array();
         $data['menu_top'] = 'admin/menu_top';
         $data['menu_iz'] = 'admin/menu_iz';
-        
+        $data['sedes'] = $this->db->get('sedes')->result();
         $data['col_derecha'] = 'admin/administradores/col_derecha';
         $data['listado'] = 'admin/administradores/form';
         
@@ -61,7 +62,8 @@ class Administradores extends MY_Controller {
             redirect(base_url() . 'admin/administradores/index', 'location');
         }
         $args=array('tabla'=>'administradores','campo'=>'id','valor'=>$id);
-            $data['item'] = $this->varios->getItem($args);
+        $data['item'] = $this->varios->getItem($args);
+        $data['sedes'] = $this->db->get('sedes')->result();
         $data['menu_top'] = 'admin/menu_top';
         $data['menu_iz'] = 'admin/menu_iz';
         $data['col_derecha'] = 'admin/administradores/col_derecha';

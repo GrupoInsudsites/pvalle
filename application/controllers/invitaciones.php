@@ -20,6 +20,9 @@ class Invitaciones extends CI_Controller {
             array('Bold', 'Italic', 'Underline', 'Strike')
         );
         $this->load->model('evento');
+        $this->load->library('form_validation');
+        $this->load->library('../controllers/push');
+
     }
     
 
@@ -68,20 +71,20 @@ class Invitaciones extends CI_Controller {
             $ni = $this->input->post('nombre');
 
 
-            $this -> load -> library( 'form_validation' );
+            
             
 
-            $this -> form_validation -> set_error_delimiters('<span class="has-warning" style="color:#f00;">', '</span>');    
+            $this->form_validation->set_error_delimiters('<span class="has-warning" style="color:#f00;">', '</span>');    
             
-            $this -> form_validation -> set_rules( 'nombre', 'Nombre de la visita', 'trim|required|min_length[3]|max_length[100]' );
+            $this->form_validation->set_rules( 'nombre', 'Nombre de la visita', 'trim|required|min_length[3]|max_length[100]' );
             
-            $this -> form_validation -> set_rules( 'dni', 'dni', 'trim|required|min_length[7]|max_length[30]' );
+            $this->form_validation->set_rules( 'dni', 'dni', 'trim|required|min_length[7]|max_length[30]' );
            
-            $this -> form_validation -> set_rules( 'dominio', 'Dominio', 'trim|required' );
+            $this->form_validation->set_rules( 'dominio', 'Dominio', 'trim|required' );
             
-            $this -> form_validation -> set_message( 'required', 'El campo %s es obligatorio<br> ');
-            $this -> form_validation -> set_message( 'min_length', 'La menor cantidad de caracteres para %s es %s <br>');
-            $this -> form_validation -> set_message( 'max_length', 'La menor cantidad de caracteres para %s es %s <br>');
+            $this->form_validation->set_message( 'required', 'El campo %s es obligatorio<br> ');
+            $this->form_validation->set_message( 'min_length', 'La menor cantidad de caracteres para %s es %s <br>');
+            $this->form_validation->set_message( 'max_length', 'La menor cantidad de caracteres para %s es %s <br>');
 
             if( $this->form_validation->run() === FALSE){ //si tiene errores
 
@@ -94,26 +97,35 @@ class Invitaciones extends CI_Controller {
             } else { //si no tiene errores se graba
 
                 $ip = $this->getIP();
+//==================================================Cambiar para cada sede========================================================
 
+                /*
+                * 1 = Bascula garruchos,
+                * 2 = Bascula gafosa,
+                * 3 = Puerto Valle,
+                * 4 = Villa oliveri,
+                * 5 = Impregnadora
+                */
                  $data=array(
-                     'nombre'=>  $this -> security -> xss_clean( $this->input->post('nombre')),
-                     'dni'=>  $this -> security -> xss_clean( $this->input->post('dni')),
-                     'dominio'=>  $this -> security -> xss_clean( $this->input->post('dominio')),
-                     'observaciones'=>  $this -> security -> xss_clean( $this->input->post('observaciones')),
-                     'vivero'=>  $this -> security -> xss_clean( $this->input->post('vivero')),
+                     'nombre'=>  $this->security->xss_clean( $this->input->post('nombre')),
+                     'dni'=>  $this->security->xss_clean( $this->input->post('dni')),
+                     'dominio'=>  $this->security->xss_clean( $this->input->post('dominio')),
+                     'observaciones'=>  $this->security->xss_clean( $this->input->post('observaciones')),
+                     'vivero'=>  $this->security->xss_clean( $this->input->post('vivero')),
                      'ingreso' => $ahora,
-                     'forestal'=>  $this -> security -> xss_clean( $this->input->post('forestal')),
-                     'ganaderia'=>  $this -> security -> xss_clean( $this->input->post('ganaderia')),
-                     'hotel'=>  $this -> security -> xss_clean( $this->input->post('hotel')),
-                     'yacare'=>  $this -> security -> xss_clean( $this->input->post('yacare')),
-                     'otros'=>  $this -> security -> xss_clean( $this->input->post('otros')),
+                     'forestal'=>  $this->security->xss_clean( $this->input->post('forestal')),
+                     'ganaderia'=>  $this->security->xss_clean( $this->input->post('ganaderia')),
+                     'hotel'=>  $this->security->xss_clean( $this->input->post('hotel')),
+                     'yacare'=>  $this->security->xss_clean( $this->input->post('yacare')),
+                     'otros'=>  $this->security->xss_clean( $this->input->post('otros')),
                      'status' => 'si',
-                     'tipovisita' => $this -> security -> xss_clean( $this->input->post('tipovisita'))
+                     'tipovisita' => $this->security->xss_clean( $this->input->post('tipovisita')),
+                     'sede' => 1,
                      
                  );
                  $this->evento->insert_data($data);
-                 
-                  redirect('/invitaciones/index', 'refresh');
+                
+                redirect('/invitaciones/index', 'refresh');
                         
                     
                 
@@ -129,7 +141,7 @@ class Invitaciones extends CI_Controller {
     }
     
     public function salida($id){
-         $ahora = date('Y-m-d H:i:s');
+        $ahora = date('Y-m-d H:i:s');
         $data =array('status'=>'no', 'salida'=>$ahora);
 
         $id = (int)$id;

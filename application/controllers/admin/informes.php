@@ -3,7 +3,7 @@ class Informes extends MY_Controller {
 
     public function __construct() {
         parent::__construct();
-        
+         
         $this->load->model('informe');
     }
     
@@ -14,16 +14,25 @@ class Informes extends MY_Controller {
      */
     public function index() {
         
+
         $fechas['desde']                = (isset($_POST['desde']))?$_POST['desde']:'';
         $fechas['hasta']                = (isset($_POST['hasta']))?$_POST['hasta']:'';
         $fechas['tipovisita']           = (isset($_POST['tipovisita']))?$_POST['tipovisita']:'';
-        $fechas['sedes']                 = (isset($_POST['sedes']))?$_POST['sedes']:'';
+        if($this->typeLogin == 1){
+            $fechas['sedes']            = (isset($_POST['sedes']))?$_POST['sedes']:'';
+            $data['sedes']              = $this->informe->getSedes();
+        }elseif($this->typeLogin == 2){
+            $fechas['sedes'] = $this->sedeLogin;
+            //$data['sede']                   =  $fechas['sedes']  ;
+        }
 
+        $data['admin'] = $this->typeLogin;
         $data['hasta']                  = $fechas['hasta'];
         $data['desde']                  = $fechas['desde'];
         $data['tipovisita']             = $fechas['tipovisita'];
+
         $data['sedes']                  = $this->informe->getSedes();
-        $data['sede']                   =  $fechas['sedes']  ;
+        
         $filtros                        = array(
                                             'desde'         => $fechas['desde'], 
                                             'hasta'         => $fechas['hasta'],

@@ -21,7 +21,7 @@ class Informe extends CI_Model {
         }
 
        
-
+ 
         $res = $this->db->get('entradasalida')->result();
         
        

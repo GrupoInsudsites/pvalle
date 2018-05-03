@@ -193,8 +193,24 @@ public function fetch_invitados_hoy_llegaron( $criterio='') {
 
     public function traer_activos($act){
         $act = ($act=='activo')?'si':'no';
-	$this->db->limit(300);
+        $date = getdate();
+        $filter = $date['mon'] - 3;
+        if($filter <= 0){
+            $year = $date['year'] - 1;
+            $filter = $filter + 12;
+        }else {
+            $year = $date['year'];
+        }
+        $leftDate =  $year. '-' . str_pad($filter, 2, 0, STR_PAD_LEFT) . '-' . str_pad($date ['mday'], 2, 0, STR_PAD_LEFT);
+
+        $this->db->order_by('ingreso', 'desc');
+        $this->db->where('ingreso >', $leftDate);
+	    $this->db->limit(300);
         $this->db->where('status',$act);
+        //==================================================================================*/
+        /*||     CAMBIAR PARA CADA SEDE ESTO SOLO DEBE ESTAR HABILITADO PARA PUERTO VALLE ||
+        /*||*/$this->db->where('sede', 1);//                                             ||
+        //==================================================================================*/
         $res= $this->db->get('entradasalida')->result();
         return $res;
     }

@@ -18,12 +18,13 @@ class MY_Controller extends CI_Controller
         
         
         
+        $this->typeLogin = $this->session->userdata('type');
+        $this->sedeLogin = $this->session->userdata('sede');
         
         if (!$this->session->userdata('loggedin'))
         {
             
             $front = $this->input->post('user');
-            
             
 			$this->session->set_flashdata('message', 'Su usuario o password son incorrectos, intente nuevamente');
             if(isset($front['front']) && $front['front']==1){
