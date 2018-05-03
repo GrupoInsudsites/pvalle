@@ -33,9 +33,7 @@ class Push extends CI_Controller {
         var_dump($response);
         curl_close($ch);
         if($response == "exito"){
-            foreach ($data as $value) {
-                $this->evento->disableImporter($value->id);
-            }
+            $this->evento->disableImporter();
         }
     }
 
