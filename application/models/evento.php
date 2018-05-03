@@ -209,7 +209,7 @@ public function fetch_invitados_hoy_llegaron( $criterio='') {
         $this->db->where('status',$act);
         //==================================================================================*/
         /*||     CAMBIAR PARA CADA SEDE ESTO SOLO DEBE ESTAR HABILITADO PARA PUERTO VALLE ||
-        /*||*/$this->db->where('sede', 1);//                                             ||
+        /*||*/$this->db->where('sede', 3);//                                             ||
         //==================================================================================*/
         $res= $this->db->get('entradasalida')->result();
         return $res;
