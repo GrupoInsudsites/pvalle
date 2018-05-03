@@ -33,7 +33,11 @@ class Informes extends MY_Controller {
         if ($fechas['sedes'] != '') {
             $this->db->where('id', $fechas['sedes']);
             $sede = $this->db->get('sedes')->result();
-            $data['sede'] = $sede[0]->nombre;
+            if(isset($sede[0])){
+                $data['sede'] = $sede[0]->nombre;
+            }else {
+                $data['sede'] = '';
+            }
         }else {
             $data['sede'] = 'Seleccione una sede';
         }
