@@ -30,12 +30,12 @@ class Informes extends MY_Controller {
             $data['sedes']              = $this->evento->getSedesByAdmon($userSedes);
             //$data['sede']                   =  $fechas['sedes']  ;
         }
-        if (isset($fechas['sedes'])) {
+        if ($fechas['sedes'] != '') {
             $this->db->where('id', $fechas['sedes']);
             $sede = $this->db->get('sedes')->result();
             $data['sede'] = $sede[0]->nombre;
         }else {
-            $data['sede'] = '';
+            $data['sede'] = 'Seleccione una sede';
         }
         $data['admin'] = $this->typeLogin;
         $data['hasta']                  = $fechas['hasta'];
