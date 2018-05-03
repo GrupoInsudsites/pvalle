@@ -205,7 +205,7 @@ public function fetch_invitados_hoy_llegaron( $criterio='') {
 
         $this->db->order_by('ingreso', 'desc');
         $this->db->where('ingreso >', $leftDate);
-	    $this->db->limit(300);
+	    $this->db->limit(500);
         $this->db->where('status',$act);
         //==================================================================================*/
         /*||     CAMBIAR PARA CADA SEDE ESTO SOLO DEBE ESTAR HABILITADO PARA PUERTO VALLE ||
