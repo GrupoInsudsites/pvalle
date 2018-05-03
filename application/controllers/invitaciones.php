@@ -62,9 +62,6 @@ class Invitaciones extends CI_Controller {
 
     public function guarda(){
      
-           
-var_dump($this->input->post('submit'));
-die;
        if ($this->input->post('submit')) {
             $ahora = date('Y-m-d H:i:s');
 

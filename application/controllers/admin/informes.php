@@ -17,14 +17,18 @@ class Informes extends MY_Controller {
         $fechas['desde']                = (isset($_POST['desde']))?$_POST['desde']:'';
         $fechas['hasta']                = (isset($_POST['hasta']))?$_POST['hasta']:'';
         $fechas['tipovisita']           = (isset($_POST['tipovisita']))?$_POST['tipovisita']:'';
+        $fechas['sedes']                 = (isset($_POST['sedes']))?$_POST['sedes']:'';
 
         $data['hasta']                  = $fechas['hasta'];
         $data['desde']                  = $fechas['desde'];
         $data['tipovisita']             = $fechas['tipovisita'];
+        $data['sedes']                  = $this->informe->getSedes();
+        $data['sede']                   =  $fechas['sedes']  ;
         $filtros                        = array(
                                             'desde'         => $fechas['desde'], 
                                             'hasta'         => $fechas['hasta'],
-                                            'tipovisita'    => $fechas['tipovisita']                                 
+                                            'tipovisita'    => $fechas['tipovisita'], 
+                                            'sedes'          => $fechas['sedes'],                                
 
                                         );
         

@@ -16,11 +16,22 @@ class Informe extends CI_Model {
         if($filtros['tipovisita']!='' && $filtros['tipovisita']!='todos'){
             $this->db->where('tipovisita', $filtros['tipovisita']);
         }
+        if($filtros['sedes'] != ''){
+            $this->db->where('sede', $filtros['sedes']);
+        }
+
+       
+
         $res = $this->db->get('entradasalida')->result();
         
        
         return $res;
 	}
+    public function getSedes(){
+
+        $query = $this->db->get('sedes')->result();
+        return $query;
+    }
 
 
 }

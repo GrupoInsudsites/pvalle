@@ -16,16 +16,5 @@ class Admin extends MY_Controller {
         $data['menusel']="home";
         $this->load->view('admin/admin_arranque', $data);
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
 

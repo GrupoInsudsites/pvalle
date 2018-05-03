@@ -11,6 +11,13 @@
  	<option value="visita">Visitas</option>
 	<option value="pasajero">Pasajeros</option>
  </select>
+ <label for='sedes'>Sede</label>
+<select name="sedes" id="tipovisita">
+	<option value=""></option>
+ 	<?php foreach ($sedes as $sedeName) {?>
+		<option value="<?php echo $sedeName->id ?>"><?php echo $sedeName->nombre ?></option>
+ 	<?php } ?>
+ </select>
  <input type="submit" name="submit" value="Aplicar Criterios" /> 
 <?php echo form_close(); ?>
 <div id="grafico" style="width:1200px; height:550px;"></div>

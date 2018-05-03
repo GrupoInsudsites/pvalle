@@ -267,6 +267,19 @@ public function fetch_invitados_hoy_llegaron( $criterio='') {
         }
        
     }
+    public function disableImporter($id){
+        $this->db->where('id', $id);
+        $this->db->set('exportado', 1);
+        $this->db->update('entradasalida');
+    }
+    public function insertBySede ($data){
+        $this->db->insert('entradasalida', $data);
+    }
+    public function exportData(){
+        $this->db->where('exportado', 0);
+        $res= $this->db->get('entradasalida')->result();
+        return $res;
+    }
 }
 
 ?>
