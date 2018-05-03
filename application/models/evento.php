@@ -283,18 +283,30 @@ public function fetch_invitados_hoy_llegaron( $criterio='') {
         }
        
     }
-    public function disableImporter($id){
+    public function disableImporter($id){ 
         $this->db->where('id', $id);
         $this->db->set('exportado', 1);
         $this->db->update('entradasalida');
     }
     public function insertBySede ($data){
-        $this->db->insert('entradasalida', $data);
+        $this->db->insert('data', $data);
     }
     public function exportData(){
         $this->db->where('exportado', 0);
+        $this->db->select('nombre', 'dni', 'ingreso', 
+            'salida', 'status', 'observaciones', 
+            'quien', 'vivero', 'forestal', 'ganaderia', 
+            'hotel', 'yacare', 'otros', 'tipovisita', 'sede', 'exportado');
         $res= $this->db->get('entradasalida')->result();
         return $res;
+    }
+    public function getSedesByAdmon($arraySede){
+        foreach ($arraySede as $sede) {
+            $this->db->or_where('id', $sede);
+        }
+        $query = $this->db->get('sedes')->result();
+
+        return $query;
     }
 }
 

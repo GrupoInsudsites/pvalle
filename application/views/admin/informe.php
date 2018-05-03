@@ -11,7 +11,7 @@
  	<option value="visita">Visitas</option>
 	<option value="pasajero">Pasajeros</option>
  </select>
- <?php if($admin == 1) { ?>
+ <?php if($admin == 1 || $admin == 4) { ?>
 <label for='sedes'>Sede</label>
 <select name="sedes" id="tipovisita">
 	<option value=""></option>

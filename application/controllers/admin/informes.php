@@ -24,15 +24,17 @@ class Informes extends MY_Controller {
         }elseif($this->typeLogin == 2){
             $fechas['sedes'] = $this->sedeLogin;
             //$data['sede']                   =  $fechas['sedes']  ;
+        }elseif($this->typeLogin == 4){
+            $userSedes = explode('-', $this->sedeLogin);
+            $fechas['sedes']            = (isset($_POST['sedes']))?$_POST['sedes']:'';
+            $data['sedes'] = $this->evento->getSedesByAdmon($userSedes);
+            //$data['sede']                   =  $fechas['sedes']  ;
         }
 
         $data['admin'] = $this->typeLogin;
         $data['hasta']                  = $fechas['hasta'];
         $data['desde']                  = $fechas['desde'];
-        $data['tipovisita']             = $fechas['tipovisita'];
-
-        $data['sedes']                  = $this->informe->getSedes();
-        
+        $data['tipovisita']             = $fechas['tipovisita']; 
         $filtros                        = array(
                                             'desde'         => $fechas['desde'], 
                                             'hasta'         => $fechas['hasta'],
