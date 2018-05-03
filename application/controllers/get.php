@@ -18,7 +18,7 @@ class Get extends CI_Controller {
     	//$data
     	$data = (array)$data ;
     	foreach ($data as $value) {
-            $data = array_pop($value->id);
+            
             $value->id = $value->sede . $value->id;
     		$this->evento->insertBySede($value);
     		$status = "exito";
