@@ -18,6 +18,8 @@ class Informe extends CI_Model {
         }
         if($filtros['sedes'] != ''){
             $this->db->where('sede', $filtros['sedes']);
+        }else{
+            $this->db->where('sede', $filtros['loginSede']);
         }
 
        

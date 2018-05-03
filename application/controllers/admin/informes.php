@@ -27,19 +27,28 @@ class Informes extends MY_Controller {
         }elseif($this->typeLogin == 4){
             $userSedes = explode('-', $this->sedeLogin);
             $fechas['sedes']            = (isset($_POST['sedes']))?$_POST['sedes']:'';
-            $data['sedes'] = $this->evento->getSedesByAdmon($userSedes);
+            $data['sedes']              = $this->evento->getSedesByAdmon($userSedes);
             //$data['sede']                   =  $fechas['sedes']  ;
         }
-
+        if (isset($fechas['sedes'])) {
+            $this->db->where('id', $fechas['sedes']);
+            $sede = $this->db->get('sedes')->result();
+            $data['sede'] = $sede[0]->nombre;
+        }else {
+            $data['sede'] = '';
+        }
         $data['admin'] = $this->typeLogin;
         $data['hasta']                  = $fechas['hasta'];
         $data['desde']                  = $fechas['desde'];
-        $data['tipovisita']             = $fechas['tipovisita']; 
+        $data['tipovisita']             = $fechas['tipovisita'];
+
+        
         $filtros                        = array(
                                             'desde'         => $fechas['desde'], 
                                             'hasta'         => $fechas['hasta'],
                                             'tipovisita'    => $fechas['tipovisita'], 
-                                            'sedes'          => $fechas['sedes'],                                
+                                            'sedes'          => $fechas['sedes'], 
+                                            'loginSede'     => $this->sedeLogin,                               
 
                                         );
         

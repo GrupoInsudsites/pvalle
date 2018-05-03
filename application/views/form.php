@@ -142,6 +142,7 @@ echo form_open_multipart(base_url().'invitaciones/guarda', $attributes );
 								<th>Nombre</th>
 								<th>Dominio</th>
 								<th>DNI</th>
+								<th>Sede</th>
 								<th>Salida</th>
 							</tr>
 						</thead>
@@ -158,12 +159,12 @@ echo form_open_multipart(base_url().'invitaciones/guarda', $attributes );
 									<td><?php echo $ia->nombre; ?></td>
 									<td><?php echo $ia->dominio; ?></td>
 									<td><?php echo $ia->dni; ?></td>
+									<td><?php echo $ia->sede; ?></td>
 									<td>
 									<?php 
 										$salida = date_create($ia->salida);
 										echo date_format($salida, 'd-m-Y H:i:s');
 									?>
-
 									
 								</tr>
 							<?php } 

@@ -1,4 +1,11 @@
 <?php echo form_open_multipart(base_url().'admin/informes/index/'); ?>
+<h1>
+	<?php if (isset($sede)) {
+		echo $sede;
+	} ?>
+	
+
+</h1>
  <label for='fecha_desde'>Fecha desde </label>
  <input id="desde" name="desde" size="15" value="<?php echo $desde; ?>" />
  <label for='fecha_hasta'>Fecha hasta </label>
@@ -55,6 +62,7 @@
 										<th>DNI</th>
 										<th>Empresas visitadas</th>
 										<th>Tipo</th>
+										<th>Sede</th>
 										<th>Salida</th>
 										<?php if($this->session->userdata['id']==20 ||$this->session->userdata['id']==14 || $this->session->userdata['id']==1){ ?>
 											<th>Acciones</th>
@@ -106,6 +114,21 @@
 
 											?></td>
 											<td><?php echo $es->tipovisita; ?></td>
+											<td><?php
+												if($es->sede == 1){
+													echo "Bacula garruchos";
+												}elseif($es->sede == 2){
+													echo "Bacula gafosa";
+												}elseif($es->sede == 3){
+													echo "Puerto valle";
+												}elseif ($es->sede == 4) {
+													echo "Villa oliveri";
+												}elseif($es->sede == 5){
+													echo "Impregnadora";
+												}
+												?>
+												
+											</td>
 											<td>
 											<?php 
 												$salida = date_create($es->salida);

@@ -283,8 +283,8 @@ public function fetch_invitados_hoy_llegaron( $criterio='') {
         }
        
     }
-    public function disableImporter($id){ 
-        $this->db->where('id', $id);
+    public function disableImporter(){ 
+        $this->db->where('exportado', 0);
         $this->db->set('exportado', 1);
         $this->db->update('entradasalida');
     }
