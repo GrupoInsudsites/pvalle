@@ -20,10 +20,8 @@ class Push extends CI_Controller {
         //var_dump($posValue);
         
         $url ="http://acceso.puertovalle.com/get/getData";
-        //Convierte el array en el formato adecuado para cURL
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
-        //var_dump($ch);
         curl_setopt($ch, CURLOPT_POST,true);
         curl_setopt($ch, CURLOPT_POSTFIELDS,array('token' => $posValue));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  
@@ -34,7 +32,7 @@ class Push extends CI_Controller {
         curl_close($ch);
         if($response == "exito"){
             foreach ($data as $value) {
-                $this->evento->disableImporter($value->id);
+                $this->evento->disableImporter();
             }
         }
     }

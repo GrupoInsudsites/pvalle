@@ -97,9 +97,9 @@ class Invitaciones extends CI_Controller {
             } else { //si no tiene errores se graba
 
                 $ip = $this->getIP();
-//==================================================Cambiar para cada sede========================================================
+//==================================================Cambiar para cada sede========================================================\\
 
-                /*
+               /*
                 * 1 = Bascula garruchos,
                 * 2 = Bascula gafosa,
                 * 3 = Puerto Valle,
@@ -120,7 +120,7 @@ class Invitaciones extends CI_Controller {
                      'otros'=>  $this->security->xss_clean( $this->input->post('otros')),
                      'status' => 'si',
                      'tipovisita' => $this->security->xss_clean( $this->input->post('tipovisita')),
-                     'sede' => 1,
+                     'sede' => 3,
                      
                  );
                  $this->evento->insert_data($data);
@@ -223,4 +223,8 @@ class Invitaciones extends CI_Controller {
         }
       }
 }
+
+// INSTALACION Y PRUEBA DEL SISTEMA DE ENTRADAS EN LOS COMPUTADORES DE POMERA, PRUEBA DE SISTEMAS Y PRUEBA DE LA VISIUALIZACION EN PUERTO VALLE, CLUB DE LA INNOVACION VALIDAR LA INFORMACION CON MALENA Y DAR EXPLICACIONES DEL ERROR BASICAMEMNTE FUE POR EL EXCEL QUE DETERMINA EL CARGO DEL JEFE Y NO AL JEFE PROPIAMENTE DICHO TENGO QUE VLAIDAR ESTOS DATOS PARA QUE NO SUCESEDAN ESTE TIPO DE COSAS AUNQUE ES COMPLEJO PORQUE TENDRIA QUE VER COMO DIFERENCIAR LOS DISTINTOS CARGOS YA QUE NO ESTAN FORMATEADOS, EN FIN TODO ESTO ANTES DE LAS 4:00 HORA DE LA CITA ODONTOLOGICA B
 ?>
+
+
