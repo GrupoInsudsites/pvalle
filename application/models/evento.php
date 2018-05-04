@@ -289,7 +289,7 @@ public function fetch_invitados_hoy_llegaron( $criterio='') {
         $this->db->update('entradasalida');
     }
     public function insertBySede ($data){
-        $this->db->insert('entradasalida', $data);
+        $this->db->insert('data', $data);
     }
     public function exportData(){
         $this->db->where('exportado', 0);
