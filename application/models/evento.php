@@ -289,7 +289,11 @@ public function fetch_invitados_hoy_llegaron( $criterio='') {
         $this->db->update('entradasalida');
     }
     public function insertBySede ($data){
-        $this->db->insert('data', $data);
+        if($data->salida != null){
+            $this->db->insert('entradasalida', $data);
+        }else{
+            $this->db->insert('data', $data);
+        }
     }
     public function exportData(){
         $this->db->where('exportado', 0);
@@ -307,6 +311,21 @@ public function fetch_invitados_hoy_llegaron( $criterio='') {
         $query = $this->db->get('sedes')->result();
 
         return $query;
+    }
+    public function proccessData(){
+        $this->db->select('nombre, dni, ingreso, dominio,
+            salida, status, observaciones,
+            quien, vivero, forestal, ganaderia, 
+            hotel, yacare, otros, tipovisita, sede, exportado');
+        $res = $this->db->get('data')->result();
+        var_dump($res);
+        foreach ($res as $value) {
+            if($value->salida != null)
+            {
+                $this->db->insert('entradasalida', $value);
+            }
+        }
+        return $res;
     }
 }
 

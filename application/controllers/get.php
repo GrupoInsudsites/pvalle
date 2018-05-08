@@ -21,9 +21,15 @@ class Get extends CI_Controller {
     		$this->evento->insertBySede($value);
     		$status = "exito";
     	}
-
-    	echo "exito";
+        if ($status== "exito"){ 
+    	   echo "exito";
+        }
        	
 	}
+    public function proccessData()
+    {
+        $this->evento->proccessData();
+        
+    }
 }
 

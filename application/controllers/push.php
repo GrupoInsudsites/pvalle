@@ -35,6 +35,7 @@ class Push extends CI_Controller {
                 $this->evento->disableImporter();
             }
         }
+    echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
     }
-
+    
 }
