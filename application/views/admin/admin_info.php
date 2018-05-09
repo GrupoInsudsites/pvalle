@@ -122,7 +122,7 @@
 <div id="page-top-outer">
     <div id="page-top">
 	   <div id="logo" style="margin-top:5px;">
-	       <img src="<?php echo base_url(); ?>assets/img/logo2.png" alt="" />
+	       <img width="200"src="<?php echo base_url(); ?>assets/img/logoGi.png" alt="" />
 	   </div>
        <div class="clear"></div>
     </div>

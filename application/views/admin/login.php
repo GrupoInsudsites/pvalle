@@ -8,7 +8,7 @@
 <body>
     <div id="main">
         <div id="header">
-            <a href="#" class="logo1"><img src="<?php echo base_url();?>assets/img/logo2.png"  alt="" /></a>
+            <a href="#" class="logo1"><img src="<?php echo base_url();?>assets/img/grupoinsud.png"  alt="" /></a>
             <!--menu top-->
             <?php $this->load->view($menu_top); ?>
         </div>
