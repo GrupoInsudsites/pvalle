@@ -25,7 +25,7 @@ $(document).pngFix( );
 
     <!-- start logo -->
     <div id="logo-login" style="margin-left: 160px;">
-        <a href="index.html"><img src="<?php echo $base; ?>assets/img/logo2.png" alt="" /></a>
+        <a href="index.html"><img width="200"src="<?php echo $base; ?>assets/img/logoGi.png" alt="" /></a>
     </div>
     <!-- end logo -->
     
