@@ -23,7 +23,14 @@
 <select name="sedes" id="tipovisita">
 	<option value=""></option>
  	<?php foreach ($sedes as $sedeName) {?>
-		<option value="<?php echo $sedeName->id ?>"><?php echo $sedeName->nombre ?></option>
+		<option value="<?php echo $sedeName->id ?>"
+			<?php 
+				if($select == $sedeName->id){
+					echo 'selected="selected"';
+				}
+			 ?>
+
+			><?php echo $sedeName->nombre ?></option>
  	<?php } ?>
  </select>
  <?php } ?>

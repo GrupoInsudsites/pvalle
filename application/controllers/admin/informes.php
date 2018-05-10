@@ -21,12 +21,16 @@ class Informes extends MY_Controller {
         if($this->typeLogin == 1){
             $fechas['sedes']            = (isset($_POST['sedes']))?$_POST['sedes']:'';
             $data['sedes']              = $this->informe->getSedes();
+            $data['select'] = $fechas['sedes'];
+            
         }elseif($this->typeLogin == 2){
             $fechas['sedes'] = $this->sedeLogin;
             //$data['sede']                   =  $fechas['sedes']  ;
         }elseif($this->typeLogin == 4){
             $userSedes = explode('-', $this->sedeLogin);
             $fechas['sedes']            = (isset($_POST['sedes']))?$_POST['sedes']:'';
+            $data['select'] = $fechas['sedes'];
+            
             $data['sedes']              = $this->evento->getSedesByAdmon($userSedes);
             //$data['sede']                   =  $fechas['sedes']  ;
         }
