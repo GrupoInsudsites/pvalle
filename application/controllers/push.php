@@ -37,5 +37,10 @@ class Push extends CI_Controller {
         }
     echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
     }
+    public function habilitedImporter(){
+        $this->db->set('exportado', 0);
+        $this->db->update('entradasalida');
+        
+    }
     
 }

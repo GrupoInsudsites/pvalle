@@ -71,22 +71,32 @@ class Informes extends MY_Controller {
             );
        
         foreach ($data['entradassalidas'] as $es) {
+            $validation = true;
             if($es->vivero == 1){
                 $emp['vivero'] += 1;
+                $validation = false;
             }
             if($es->forestal == 1){
                $emp['forestal'] += 1;
+               $validation = false;
             }
             if($es->ganaderia == 1){
                 $emp['ganaderia'] += 1;
+                $validation = false;
             }
             if($es->hotel == 1){
                 $emp['hotel'] += 1;
+                $validation = false;
             }
             if($es->yacare == 1){
                 $emp['yacare'] += 1;
+                $validation = false;
             }
             if($es->otros == 1){
+                $emp['otros'] += 1;
+                $validation = false;
+            }
+            if($validation){
                 $emp['otros'] += 1;
             }
 

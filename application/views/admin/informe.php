@@ -44,7 +44,7 @@
 			}
 			echo '<span style="font-size:17px;"><b>'. $nombre . '</b>('.$v.'%) | </span> ';
 		}
-		echo '<b>Total de visitas para el período seleccionado: </b>' .$total. ' visitas' ;
+		echo '<br><b>Total de visitas para el período seleccionado: </b>' .$total. ' visitas' ;
 	 ?>
 
 </div>
@@ -116,9 +116,9 @@
 											<td><?php echo $es->tipovisita; ?></td>
 											<td><?php
 												if($es->sede == 1){
-													echo "Bacula garruchos";
+													echo "Garruchos";
 												}elseif($es->sede == 2){
-													echo "Bacula gafosa";
+													echo "Gafosa";
 												}elseif($es->sede == 3){
 													echo "Puerto valle";
 												}elseif ($es->sede == 4) {
@@ -131,8 +131,12 @@
 											</td>
 											<td>
 											<?php 
+											if($es->salida == null){
+												echo "sin salida registrado";
+											}else{
 												$salida = date_create($es->salida);
 												echo date_format($salida, 'd-m-Y H:i:s');
+											}
 											?>
 
 											</td>

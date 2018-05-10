@@ -285,7 +285,7 @@ public function fetch_invitados_hoy_llegaron( $criterio='') {
     }
     public function disableImporter(){ 
         $this->db->where('exportado', 0);
-        $this->db->where('salida', '<>', null);
+        $this->db->where("status", 'no');
         $this->db->set('exportado', 1);
         $this->db->update('entradasalida');
     }
