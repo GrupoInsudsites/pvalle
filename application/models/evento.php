@@ -294,6 +294,7 @@ public function fetch_invitados_hoy_llegaron( $criterio='') {
         $this->db->where('dni', $data->dni);
         $this->db->where('dominio', $data->dominio);
         $validation = $this->db->get('entradasalida')->result();
+        dump($validation);
         if(isset($validation)){
             if($validation[0]->salida == null && $data->salida != null){
                 $this->db->where('id', $validation[0]->id);
