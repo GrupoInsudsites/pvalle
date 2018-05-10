@@ -285,6 +285,7 @@ public function fetch_invitados_hoy_llegaron( $criterio='') {
     }
     public function disableImporter(){ 
         $this->db->where('exportado', 0);
+        $this->db->where('salida', '<>', null);
         $this->db->set('exportado', 1);
         $this->db->update('entradasalida');
     }
@@ -298,7 +299,7 @@ public function fetch_invitados_hoy_llegaron( $criterio='') {
         if(isset($validation[0])){
             if($validation[0]->salida == null && $data->salida != null){
                 $this->db->where('id', $validation[0]->id);
-                $this->db->set('salida', $data);
+                $this->db->set('salida', $data->salida);
                 $this->db->update('entradasalida');
             }
         }else{
