@@ -289,11 +289,21 @@ public function fetch_invitados_hoy_llegaron( $criterio='') {
         $this->db->update('entradasalida');
     }
     public function insertBySede ($data){
-        if($data->salida != null){
-            $this->db->insert('entradasalida', $data);
+        $this->db->where('nombre', $data->nombre);
+        $this->db->where('ingreso', $data->ingreso);
+        $this->db->where('dni', $data->dni);
+        $this->db->where('dominio', $data->dominio);
+        $validation = $this->db->get('entradasalida')->result();
+        if(isset($validation)){
+            if($validation[0]->salida == null && $data->salida != null){
+                $this->db->where('id', $validation[0]->id);
+                $this->db->set('salida', $data);
+                $this->db->update('entradasalida');
+            }
         }else{
-            $this->db->insert('data', $data);
+            $this->db->insert('entradasalida', $data);
         }
+        
     }
     public function exportData(){
         $this->db->where('exportado', 0);
