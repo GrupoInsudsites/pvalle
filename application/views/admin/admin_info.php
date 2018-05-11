@@ -76,13 +76,21 @@
                 }
 
                 /**/
-
+                <?php if($select != 4) {?>
                 var data = [ ['Vivero ( ' + <?php echo $emp['vivero']; ?> + ' visitas)', <?php echo $emp['vivero']; ?>],
                             ['Forestal ( '+<?php echo $emp['forestal']; ?> +' visitas)', <?php echo $emp['forestal']; ?>], 
                             ['Ganadería ( '+<?php echo $emp['ganaderia']; ?>+ ' visitas)', <?php echo $emp['ganaderia']; ?>], 
                             ['Hotel ('+<?php echo $emp['hotel']; ?>+' visitas)', <?php echo $emp['hotel']; ?>],
                             ['Yacaré Porá ('+<?php echo $emp['yacare']; ?>+' visitas)', <?php echo $emp['yacare']; ?>], 
                             ['Otros ('+<?php echo $emp['otros']; ?>+' visitas)', <?php echo $emp['otros']; ?> ] ]
+                <?php }else{ ?>
+                  var data = [ ['San alonso ( ' + <?php echo $emp['vivero']; ?> + ' visitas)', <?php echo $emp['vivero']; ?>],
+                            ['Forestal ( '+<?php echo $emp['forestal']; ?> +' visitas)', <?php echo $emp['forestal']; ?>], 
+                            ['Fresa ( '+<?php echo $emp['ganaderia']; ?>+ ' visitas)', <?php echo $emp['ganaderia']; ?>], 
+                            ['Impregnadora ('+<?php echo $emp['hotel']; ?>+' visitas)', <?php echo $emp['hotel']; ?>],
+ 
+                            ['Otros ('+<?php echo $emp['otros']; ?>+' visitas)', <?php echo $emp['otros']; ?> ] ]
+                <?php } ?>
                           var plot1 = jQuery.jqplot ('grafico', [data], 
                             { 
                               seriesDefaults: {
@@ -108,8 +116,6 @@
                           );
 
                 /**/
-
-
 
                 });
 
