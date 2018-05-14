@@ -39,7 +39,7 @@
 <div id="grafico" style="width:1200px; height:550px;"></div>
 <div  style="width:1000px; height:50px; padding:5px; ">
 	<?php
-		if($select != 4){
+		if($select != 4 && $select != 5){
 			foreach($por as $k=>$v){
 				if($k == 'ganaderia' || $k == 'yacare'){
 					if($k == 'ganaderia'){
@@ -61,6 +61,9 @@
 				if($k == 'ganaderia' || $k == 'yacare'){
 					if($k == 'ganaderia'){
 						$nombre = 'Fresa';
+					}
+					elseif($k == 'yacare'){
+						$nombre = ucfirst('Olivari');
 					}else{
 						$val = false;
 					}
@@ -75,6 +78,7 @@
 					}
 					$nombre = ucfirst($nombre);
 				}
+				
 				if($val){
 					echo '<span style="font-size:17px;"><b>'. $nombre . '</b>('.$v.'%) | </span> ';
 				}
@@ -121,7 +125,7 @@
 											<td><?php echo $es->dni; ?></td>
 											<td><?php 
 												$empresas = '';
-											    if($select != 4){
+											    if($select != 4 && $select != 5){
 										            if($es->vivero == 1){
 										                $empresas .= 'Vivero, ';
 										            }
@@ -147,11 +151,19 @@
 										            if($es->forestal == 1){
 										                $empresas .= 'Forestal, ';
 										            }
+										            if($es->hotel == 1){
+										                $empresas .= 'Impregnadora, ';
+										            }
 										            if($es->ganaderia == 1){
 										                $empresas .= 'Fresa, ';
 										            }
 										            if($es->otros == 1){
 										                $empresas .= 'Otro, ';
+										            }
+										            if($select == 5){
+										            	if($es->yacare){
+										            		$empresas .= 'Olivari';
+										            	}
 										            }
 											    }   
 
@@ -172,7 +184,7 @@
 												}elseif($es->sede == 3){
 													echo "Puerto valle";
 												}elseif ($es->sede == 4) {
-													echo "Villa oliveri";
+													echo "Villa olivari";
 												}elseif($es->sede == 5){
 													echo "Impregnadora";
 												}

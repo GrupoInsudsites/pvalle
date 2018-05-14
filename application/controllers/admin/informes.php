@@ -103,6 +103,7 @@ class Informes extends MY_Controller {
             if($validation){
                 $emp['otros'] += 1;
             }
+            
 
 
 
