@@ -39,52 +39,128 @@
 <div id="grafico" style="width:1200px; height:550px;"></div>
 <div  style="width:1000px; height:50px; padding:5px; ">
 	<?php
-		if($select != 4 && $select != 5){
-			foreach($por as $k=>$v){
-				if($k == 'ganaderia' || $k == 'yacare'){
-					if($k == 'ganaderia'){
-						$nombre = 'Ganadería';
-					}else{
-						$nombre = 'Yacaré Porá'; 
+	switch ($select) {
+				case 1:
+					# Bascula garruchos
+					# Unidades de negocios Ganaderia, Forestal, Casa Principal
+					foreach($por as $k=>$v){
+						$nombre = "";
+						$val = true;
+						if($k == 'ganaderia'){
+							$nombre = ucfirst($k);
+						}elseif($k == 'forestal'){
+							$nombre = ucfirst($k);
+						}elseif($k == 'yacare'){
+							$nombre = ucfirst('casa principal');
+						}elseif($k == 'otros'){
+							$nombre = ucfirst($k);
+						}else {
+							$val = false;
+						}
+						if($val){
+							echo '<span style="font-size:17px;"><b>'. $nombre . '</b>('.$v.'%) | </span> ';
+						}
 					}
-				}else{
-					$nombre = ucfirst($k);
-				}
-				echo '<span style="font-size:17px;"><b>'. $nombre . '</b>('.$v.'%) | </span> ';
-			}
-			echo '<br><b>Total de visitas para el período seleccionado: </b>' .$total. ' visitas' ;
-		} else{
+					echo '<br><b>Total de visitas para el período seleccionado: </b>' .$total. ' visitas' ;
+					 
+					break;
+				case 2:
+					# Bascula Gafosa
+					# Forestal, Ganaderia OTROS
+					foreach($por as $k=>$v){
+						$nombre = "";
+						$val = true;
+						if($k == 'ganaderia'){
+							$nombre = ucfirst($k);
+						}elseif($k == 'forestal'){
+							$nombre = ucfirst($k);
+						}elseif($k == 'otros'){
+							$nombre = ucfirst($k);
+						}else {
+							$val = false;
+						}
+						if($val){
+							echo '<span style="font-size:17px;"><b>'. $nombre . '</b>('.$v.'%) | </span> ';
+						}
+					}
+					echo '<br><b>Total de visitas para el período seleccionado: </b>' .$total. ' visitas' ;
+					break;
+				case 3:
+					# Puerto Valle 
+					# IGUAL
+					foreach($por as $k=>$v){
+						$nombre = "";
+						$val = true;
+						if($k == 'ganaderia'){
+							$nombre = ucfirst($k);
+						}elseif($k == 'vivero'){
+							$nombre = ucfirst($k);
+						}elseif($k == 'forestal'){
+							$nombre = ucfirst($k);
+						}elseif($k == 'ganaderia'){
+							$nombre = ucfirst($k);
+						}elseif($k == 'hotel'){
+							$nombre = ucfirst($k);
+						}elseif($k == 'yacare'){
+							$nombre = ucfirst($k);
+						}elseif($k == 'otros'){
+							$nombre = ucfirst($k);
+						}else {
+							$val = false;
+						}
+						if($val){
+							echo '<span style="font-size:17px;"><b>'. $nombre . '</b>('.$v.'%) | </span> ';
+						}
+					}
+					echo '<br><b>Total de visitas para el período seleccionado: </b>' .$total. ' visitas' ;
+					break;
+				case 4:
+					# Villa OLivari
+					# Forestal, Otros
+					foreach($por as $k=>$v){
+						$nombre = "";
+						$val = true;
+						if($k == 'forestal'){
+							$nombre = ucfirst($k);
+						}elseif($k == 'otros'){
+							$nombre = ucfirst($k);
+						}else {
+							$val = false;
+						}
+						if($val){
+							echo '<span style="font-size:17px;"><b>'. $nombre . '</b>('.$v.'%) | </span> ';
+						}
+					}
+					echo '<br><b>Total de visitas para el período seleccionado: </b>' .$total. ' visitas' ;
+					break;
+				case 5:
+					# Impregnadora
+					# Forestal, impregnadora, FRESA OTROS
+					foreach($por as $k=>$v){
+						$nombre = "";
+						$val = true;
+						if($k == 'forestal'){
+							$nombre = ucfirst($k);
+						}elseif($k == 'hotel'){
+							$nombre = ucfirst('Impregnadora');
+						}elseif($k == 'ganaderia'){
+							$nombre = ucfirst('FRESA');
+						}elseif($k == 'otros'){
+							$nombre = ucfirst($k);
+						}else {
+							$val = false;
+						}
+						if($val){
+							echo '<span style="font-size:17px;"><b>'. $nombre . '</b>('.$v.'%) | </span> ';
+						}
+					}
+					echo '<br><b>Total de visitas para el período seleccionado: </b>' .$total. ' visitas' ;
+					break;
+				default:
+					# code...
+					break;
+			}		
 			
-			foreach($por as $k=>$v){
-				$nombre = "";
-				$val = true;
-				if($k == 'ganaderia' || $k == 'yacare'){
-					if($k == 'ganaderia'){
-						$nombre = 'Fresa';
-					}
-					elseif($k == 'yacare'){
-						$nombre = ucfirst('Olivari');
-					}else{
-						$val = false;
-					}
-				}else{
-					if($k == 'hotel' ){
-						$nombre = "Impregnadora";
-					}
-					if($k == 'vivero'){
-						$nombre = "San alonso";
-					}if($k == 'forestal'||$k == 'otros'){
-						$nombre = ucfirst($k);
-					}
-					$nombre = ucfirst($nombre);
-				}
-				
-				if($val){
-					echo '<span style="font-size:17px;"><b>'. $nombre . '</b>('.$v.'%) | </span> ';
-				}
-			}
-			echo '<br><b>Total de visitas para el período seleccionado: </b>' .$total. ' visitas' ;
-		}
 	 ?>
 
 </div>
@@ -125,49 +201,89 @@
 											<td><?php echo $es->dni; ?></td>
 											<td><?php 
 												$empresas = '';
-											    if($select != 4 && $select != 5){
-										            if($es->vivero == 1){
-										                $empresas .= 'Vivero, ';
-										            }
-										            if($es->forestal == 1){
-										                $empresas .= 'Forestal, ';
-										            }
-										            if($es->ganaderia == 1){
-										                $empresas .= 'Ganaderia, ';
-										            }
-										            if($es->hotel == 1){
-										                $empresas .= 'Hotel, ';
-										            }
-										            if($es->yacare == 1){
-										                $empresas .= 'Yacaré Porá, ';
-										            }
-										            if($es->otros == 1){
-										                $empresas .= 'Otro, ';
-										            }
-											    }else{
-											    	if($es->vivero == 1){
-										                $empresas .= 'San Alonso, ';
-										            }
-										            if($es->forestal == 1){
-										                $empresas .= 'Forestal, ';
-										            }
-										            if($es->hotel == 1){
-										                $empresas .= 'Impregnadora, ';
-										            }
-										            if($es->ganaderia == 1){
-										                $empresas .= 'Fresa, ';
-										            }
-										            if($es->otros == 1){
-										                $empresas .= 'Otro, ';
-										            }
-										            if($select == 5){
-										            	if($es->yacare){
-										            		$empresas .= 'Olivari';
-										            	}
-										            }
-											    }   
+												switch ($select) {
+													case 1:
+														# Bascula garruchos
+														# Unidades de negocios Ganaderia, Forestal, Casa Principal => yacare
+											            if($es->forestal == 1){
+											                $empresas .= 'Forestal, ';
+											            }
+											            if($es->ganaderia == 1){
+											                $empresas .= 'Ganaderia, ';
+											            }
+											            if($es->yacare == 1){
+											                $empresas .= 'Casa Principal, ';
+											            }
+											            if($es->otros == 1){
+											                $empresas .= 'Otro, ';
+											            }
 
-
+														break;
+													case 2:
+														# Bascula Gafosa
+														# Forestal, Ganaderia OTROS
+														if($es->forestal == 1){
+											                $empresas .= 'Forestal, ';
+											            }
+											            if($es->ganaderia == 1){
+											                $empresas .= 'Ganaderia, ';
+											            }
+											            if($es->otros == 1){
+											                $empresas .= 'Otro, ';
+											            }
+														break;
+													case 3:
+														# Puerto Valle 
+														# IGUAL
+														if($es->vivero == 1){
+											                $empresas .= 'Vivero, ';
+											            }
+											            if($es->forestal == 1){
+											                $empresas .= 'Forestal, ';
+											            }
+											            if($es->ganaderia == 1){
+											                $empresas .= 'Ganaderia, ';
+											            }
+											            if($es->hotel == 1){
+											                $empresas .= 'Hotel, ';
+											            }
+											            if($es->yacare == 1){
+											                $empresas .= 'Yacaré Porá, ';
+											            }
+											            if($es->otros == 1){
+											                $empresas .= 'Otro, ';
+											            }
+														break;
+													case 4:
+														# Villa OLivari
+														# Forestal, Otros
+														if($es->forestal == 1){
+											                $empresas .= 'Forestal, ';
+											            }
+											            if($es->otros == 1){
+											                $empresas .= 'Otro, ';
+											            }
+														break;
+													case 5:
+														# Impregnadora
+														# Forestal, impregnadora, FRESA OTROS
+											            if($es->forestal == 1){
+											                $empresas .= 'Forestal, ';
+											            }
+											            if($es->hotel == 1){
+											                $empresas .= 'Impregnadora, ';
+											            }
+											            if($es->ganaderia == 1){
+											                $empresas .= 'Fresa, ';
+											            }
+											            if($es->otros == 1){
+											                $empresas .= 'Otro, ';
+											            }
+														break;
+													default:
+														# code...
+														break;
+												}
 										       
 										       echo  rtrim($empresas, ', ');
 

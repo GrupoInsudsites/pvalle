@@ -76,29 +76,83 @@
                 }
 
                 /**/
-                <?php if($select != 4 && $select != 5) {?>
-                var data = [ ['Vivero ( ' + <?php echo $emp['vivero']; ?> + ' visitas)', <?php echo $emp['vivero']; ?>],
+                <?php 
+                switch ($select) {
+                    case 1:
+                        # Ganaderia, Forestal, Casa principal, Otros
+                        ?>
+                        var data = [ 
+                               
+                                ['Forestal ( '+<?php echo $emp['forestal']; ?> +' visitas)', <?php echo $emp['forestal']; ?>], 
+                                ['Ganadería ( '+<?php echo $emp['ganaderia']; ?>+ ' visitas)', <?php echo $emp['ganaderia']; ?>], 
+                               
+                                ['Casa Principal ('+<?php echo $emp['yacare']; ?>+' visitas)', <?php echo $emp['yacare']; ?>], 
+                                ['Otros ('+<?php echo $emp['otros']; ?>+' visitas)', <?php echo $emp['otros']; ?> ] 
+                            ]
+                        <?php 
+                        break;
+                     case 2:
+                        # Forestal, Ganaderia
+                        ?>
+                        var data = [ 
+                               
+                                ['Forestal ( '+<?php echo $emp['forestal']; ?> +' visitas)', <?php echo $emp['forestal']; ?>], 
+                                ['Ganadería ( '+<?php echo $emp['ganaderia']; ?>+ ' visitas)', <?php echo $emp['ganaderia']; ?>], 
+                               
+                               
+                                ['Otros ('+<?php echo $emp['otros']; ?>+' visitas)', <?php echo $emp['otros']; ?> ] 
+                            ]
+                        <?php 
+                        break;
+                     case 3:
+                        # igual
+                        ?>
+                        var data = [ ['Vivero ( ' + <?php echo $emp['vivero']; ?> + ' visitas)', <?php echo $emp['vivero']; ?>],
                             ['Forestal ( '+<?php echo $emp['forestal']; ?> +' visitas)', <?php echo $emp['forestal']; ?>], 
                             ['Ganadería ( '+<?php echo $emp['ganaderia']; ?>+ ' visitas)', <?php echo $emp['ganaderia']; ?>], 
                             ['Hotel ('+<?php echo $emp['hotel']; ?>+' visitas)', <?php echo $emp['hotel']; ?>],
                             ['Yacaré Porá ('+<?php echo $emp['yacare']; ?>+' visitas)', <?php echo $emp['yacare']; ?>], 
                             ['Otros ('+<?php echo $emp['otros']; ?>+' visitas)', <?php echo $emp['otros']; ?> ] ]
-                <?php }elseif($select == 4){ ?>
-                  var data = [ ['San alonso ( ' + <?php echo $emp['vivero']; ?> + ' visitas)', <?php echo $emp['vivero']; ?>],
-                            ['Forestal ( '+<?php echo $emp['forestal']; ?> +' visitas)', <?php echo $emp['forestal']; ?>], 
-                            ['Fresa ( '+<?php echo $emp['ganaderia']; ?>+ ' visitas)', <?php echo $emp['ganaderia']; ?>], 
-                            ['Impregnadora ('+<?php echo $emp['hotel']; ?>+' visitas)', <?php echo $emp['hotel']; ?>],
-                            
-                            ['Otros ('+<?php echo $emp['otros']; ?>+' visitas)', <?php echo $emp['otros']; ?> ] ]
-                <?php }elseif ($select == 5) {?>
-                    var data = [ ['San alonso ( ' + <?php echo $emp['vivero']; ?> + ' visitas)', <?php echo $emp['vivero']; ?>],
-                            ['Forestal ( '+<?php echo $emp['forestal']; ?> +' visitas)', <?php echo $emp['forestal']; ?>], 
-                            ['Fresa ( '+<?php echo $emp['ganaderia']; ?>+ ' visitas)', <?php echo $emp['ganaderia']; ?>], 
-                            ['Impregnadora ('+<?php echo $emp['hotel']; ?>+' visitas)', <?php echo $emp['hotel']; ?>],
-                            ['Olivari ('+<?php echo $emp['yacare']; ?>+' visitas)', <?php echo $emp['yacare']; ?>], 
-                            ['Otros ('+<?php echo $emp['otros']; ?>+' visitas)', <?php echo $emp['otros']; ?> ] ]
-              
-                    <?php   }  ?>
+                        <?php 
+                        break;
+                     case 4:
+                        # Forestal
+                        ?>
+                         var data = [ 
+                               
+                                ['Forestal ( '+<?php echo $emp['forestal']; ?> +' visitas)', <?php echo $emp['forestal']; ?>], 
+
+                               
+                               
+                                ['Otros ('+<?php echo $emp['otros']; ?>+' visitas)', <?php echo $emp['otros']; ?> ] 
+                            ]
+                        <?php 
+                        break;
+                     case 5:
+                        # Forestal, Imprgnadora, FRESA,
+
+                        ?>
+                        var data = [ 
+                              
+                                ['Forestal ( '+<?php echo $emp['forestal']; ?> +' visitas)', <?php echo $emp['forestal']; ?>], 
+                                ['Fresa ( '+<?php echo $emp['ganaderia']; ?>+ ' visitas)', <?php echo $emp['ganaderia']; ?>], 
+                                ['Impregnadora ('+<?php echo $emp['hotel']; ?>+' visitas)', <?php echo $emp['hotel']; ?>],
+                                ['Otros ('+<?php echo $emp['otros']; ?>+' visitas)', <?php echo $emp['otros']; ?> ] 
+                            ]
+                        <?php 
+                        break;
+                    
+                    default:
+                        # code...
+                        ?>
+
+                        <?php 
+
+                        break;
+                }
+
+                 ?>
+               
                           var plot1 = jQuery.jqplot ('grafico', [data], 
                             { 
                               seriesDefaults: {
