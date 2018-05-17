@@ -173,15 +173,14 @@
 								<thead>
 									<tr>
 										<th>Ingreso</th>
+										<th>Salida</th>
 										<th>Nombre</th>
 										<th>Dominio</th>
 										<th>DNI</th>
 										<th>Empresas visitadas</th>
-
 										<th>Tipo</th>
 										<th>Sede</th>
 										<th>Observaciones</th>
-										<th>Salida</th>
 										<?php if($this->session->userdata['id']==20 ||$this->session->userdata['id']==14 || $this->session->userdata['id']==1){ ?>
 											<th>Acciones</th>
 										<?php } ?>
@@ -193,6 +192,17 @@
 									if(isset($entradassalidas)){ 
 									foreach ($entradassalidas as $es) { ?>
 										<tr>
+											<td>
+											<?php 
+											if($es->salida == null){
+												echo "sin salida registrado";
+											}else{
+												$salida = date_create($es->salida);
+												echo date_format($salida, 'd-m-Y H:i:s');
+											}
+											?>
+
+											</td>
 											<td><?php 
 													$ingreso = date_create($es->ingreso);
 													echo date_format($ingreso, 'd-m-Y H:i:s');
@@ -312,17 +322,7 @@
 											<td><?php 
 											echo $es->observaciones;
 											 ?></td>
-											<td>
-											<?php 
-											if($es->salida == null){
-												echo "sin salida registrado";
-											}else{
-												$salida = date_create($es->salida);
-												echo date_format($salida, 'd-m-Y H:i:s');
-											}
-											?>
-
-											</td>
+											
 											<?php if($this->session->userdata['id']==20 ||$this->session->userdata['id']==14 || $this->session->userdata['id']==1){ ?>
 												<td><a href="<?php echo base_url();?>admin/informes/borra_linea/<?php echo $es->id; ?>">Borrar</a></td>
 											<?php } ?>
