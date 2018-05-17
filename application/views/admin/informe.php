@@ -177,8 +177,10 @@
 										<th>Dominio</th>
 										<th>DNI</th>
 										<th>Empresas visitadas</th>
+
 										<th>Tipo</th>
 										<th>Sede</th>
+										<th>Observaciones</th>
 										<th>Salida</th>
 										<?php if($this->session->userdata['id']==20 ||$this->session->userdata['id']==14 || $this->session->userdata['id']==1){ ?>
 											<th>Acciones</th>
@@ -307,6 +309,9 @@
 												?>
 												
 											</td>
+											<td><?php 
+											echo $es->observaciones;
+											 ?></td>
 											<td>
 											<?php 
 											if($es->salida == null){
