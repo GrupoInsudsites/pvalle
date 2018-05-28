@@ -160,7 +160,7 @@
 					# code...
 					break;
 			}		
-			
+			 
 	 ?>
 
 </div>
@@ -192,6 +192,11 @@
 									if(isset($entradassalidas)){ 
 									foreach ($entradassalidas as $es) { ?>
 										<tr>
+											<td><?php 
+													$ingreso = date_create($es->ingreso);
+													echo date_format($ingreso, 'd-m-Y H:i:s');
+
+											?></td>
 											<td>
 											<?php 
 											if($es->salida == null){
@@ -203,11 +208,6 @@
 											?>
 
 											</td>
-											<td><?php 
-													$ingreso = date_create($es->ingreso);
-													echo date_format($ingreso, 'd-m-Y H:i:s');
-
-											?></td>
 											<td><?php echo $es->nombre; ?></td>
 											<td><?php echo $es->dominio; ?></td>
 											<td><?php echo $es->dni; ?></td>

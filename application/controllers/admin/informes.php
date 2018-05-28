@@ -18,6 +18,7 @@ class Informes extends MY_Controller {
         $fechas['desde']                = (isset($_POST['desde']))?$_POST['desde']:'';
         $fechas['hasta']                = (isset($_POST['hasta']))?$_POST['hasta']:'';
         $fechas['tipovisita']           = (isset($_POST['tipovisita']))?$_POST['tipovisita']:'';
+
         if($this->typeLogin == 1){
             $fechas['sedes']            = (isset($_POST['sedes']))?$_POST['sedes']:'';
             $data['sedes']              = $this->informe->getSedes();
@@ -25,7 +26,7 @@ class Informes extends MY_Controller {
             
         }elseif($this->typeLogin == 2){
             $fechas['sedes'] = $this->sedeLogin;
-            //$data['sede']                   =  $fechas['sedes']  ;
+            $data['select']                   =  $fechas['sedes']  ;
         }elseif($this->typeLogin == 4){
             $userSedes = explode('-', $this->sedeLogin);
             $fechas['sedes']            = (isset($_POST['sedes']))?$_POST['sedes']:'';
@@ -126,6 +127,8 @@ class Informes extends MY_Controller {
         $data['por'] =$por;
 
         $data['menu_top'] = 'admin/menu_top';
+        //var_dump($data);
+        //die;
          $this->load->view('admin/admin_info', $data);
     }
 

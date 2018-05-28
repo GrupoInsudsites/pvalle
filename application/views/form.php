@@ -142,7 +142,7 @@ echo form_open_multipart(base_url().'invitaciones/guarda', $attributes );
 								<th>Nombre</th>
 								<th>Dominio</th>
 								<th>DNI</th>
-								<th>Sede</th>
+								<th>Sedes</th>
 								<th>Salida</th>
 							</tr>
 						</thead>
