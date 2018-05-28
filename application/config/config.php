@@ -18,7 +18,7 @@
  //                   .'://'.$_SERVER['HTTP_HOST'].str_replace('//','/',dirname($_SERVER['SCRIPT_NAME']).'/'); 
  //                     
 
-$config['base_url'] = 'http://pvalle.entradas.ar';
+$config['base_url'] = 'http://acceso.puertovalle.com';
 
 /*
 |--------------------------------------------------------------------------
