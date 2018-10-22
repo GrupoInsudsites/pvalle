@@ -17,13 +17,15 @@ class Get extends CI_Controller {
     	$data = json_decode($_POST['token']);
     	//$data
     	$data = (array)$data ;
-   
+        $status = "";
     	foreach ($data as $value) {
     		$this->evento->insertBySede($value);
     		$status = "exito";
     	}
         if ($status== "exito"){ 
     	   echo "exito";
+        }else{
+            echo "No hay archivos para importar";
         }
        	
 	}

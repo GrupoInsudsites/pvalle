@@ -18,7 +18,7 @@ class Push extends CI_Controller {
         
         
         
-        $url ="http://localhost:8000/get/getData";
+        $url ="http://timesheet-sistemas-dev.grupoinsud.com/get/getData";
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST,true);
@@ -29,6 +29,7 @@ class Push extends CI_Controller {
         $response = curl_exec($ch);
         var_dump($response);
         curl_close($ch);
+        
         if($response == "exito"){
             foreach ($data as $value) {
                 $this->evento->disableImporter();
