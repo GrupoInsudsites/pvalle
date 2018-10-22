@@ -299,7 +299,7 @@ public function fetch_invitados_hoy_llegaron( $criterio='') {
         if(isset($validation[0])){
             if($validation[0]->salida == null && $data->salida != null){
                 $this->db->set('salida', $data->salida);
-                if($data->patente_salida){
+                if(isset($data->patente_salida)){
                     $this->db->set('patente_salida', $data->patente_salida);
                 }else{
                     $this->db->set('patente_salida', "");
