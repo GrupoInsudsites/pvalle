@@ -81,7 +81,7 @@ echo form_open_multipart(base_url().'invitaciones/guarda', $attributes );
 					
 				</div>
 				<div class="form-group">
-					<?php echo form_submit('submit','crear visita', ' class="btn btn-primary" ');?>
+					<?php echo form_submit('submit','crear visita', ' class="btn btn-primary" '); echo form_close()?>
 				</div>
 			</div>
 
@@ -116,11 +116,37 @@ echo form_open_multipart(base_url().'invitaciones/guarda', $attributes );
 										$salida = date_create($a->salida);
 										echo date_format($salida, 'd-m-Y H:i:s');
 										}else{?>
-											<a href="<?php echo base_url(); ?>invitaciones/salida/<?php echo $a->id; ?>" class="btn btn-primary" title="">Salida</a>
+											<a class="btn btn-primary"  data-toggle="modal" data-target="#myModal" title="">Salida</a>
 										<?php } ?>
-
-									
 								</tr>
+
+								<div class="modal fade" id="myModal">
+								  <div class="modal-dialog">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								        <h4 class="modal-title">Patente de salida</h4>
+								      </div>
+								      <?php
+										$attributes = array('id' => 'form');
+										echo form_open_multipart(base_url().'invitaciones/salida/' . $a->id, $attributes );
+										?>
+								      <form action="<?php echo base_url(); ?><?php echo $a->id; ?>" method="post">
+									      <div class="modal-body">
+									        <p>Por favor escriba la patente de salida</p>
+									        <input type="text" name="patente_salida" class="form form-control" required>
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+											<?php echo form_submit('submit','Guardar salida', ' class="btn btn-primary" ');
+									     	echo form_close();
+											?>
+
+									      </div>
+								      </form>
+								    </div><!-- /.modal-content -->
+								  </div><!-- /.modal-dialog -->
+								</div><!-- /.modal -->
 							<?php } 
 							}?>
 						</tbody>
@@ -141,6 +167,7 @@ echo form_open_multipart(base_url().'invitaciones/guarda', $attributes );
 								<th>Ingreso</th>
 								<th>Nombre</th>
 								<th>Dominio</th>
+								<th>Patente de salida</th>
 								<th>DNI</th>
 								<th>Sedes</th>
 								<th>Salida</th>
@@ -158,6 +185,7 @@ echo form_open_multipart(base_url().'invitaciones/guarda', $attributes );
 									?></td>
 									<td><?php echo $ia->nombre; ?></td>
 									<td><?php echo $ia->dominio; ?></td>
+									<td><?php echo $ia->patente_salida; ?></td>
 									<td><?php echo $ia->dni; ?></td>
 									<td><?php echo $ia->sede; ?></td>
 									<td>
@@ -188,7 +216,7 @@ echo "<div id='panel'>";
 
 <?php
 
-echo form_close();
+
 echo "<br><br>";
 
 $this->load->view('footer'); ?>

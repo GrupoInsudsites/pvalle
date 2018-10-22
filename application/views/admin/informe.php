@@ -176,6 +176,7 @@
 										<th>Salida</th>
 										<th>Nombre</th>
 										<th>Dominio</th>
+										<th>Patente de salida</th>
 										<th>DNI</th>
 										<th>Empresas visitadas</th>
 										<th>Tipo</th>
@@ -210,6 +211,7 @@
 											</td>
 											<td><?php echo $es->nombre; ?></td>
 											<td><?php echo $es->dominio; ?></td>
+											<td><?php echo $es->patente_salida; ?></td>
 											<td><?php echo $es->dni; ?></td>
 											<td><?php 
 												$empresas = '';

@@ -17,6 +17,7 @@ class Get extends CI_Controller {
     	$data = json_decode($_POST['token']);
     	//$data
     	$data = (array)$data ;
+   
     	foreach ($data as $value) {
     		$this->evento->insertBySede($value);
     		$status = "exito";

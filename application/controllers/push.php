@@ -17,9 +17,8 @@ class Push extends CI_Controller {
         $posValue =  json_encode($data);
         
         
-        //var_dump($posValue);
         
-        $url ="http://acceso.puertovalle.com/get/getData";
+        $url ="http://localhost:8000/get/getData";
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST,true);

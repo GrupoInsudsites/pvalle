@@ -99,8 +99,8 @@
         
 
         <div id="main">
-            <div style="position:relative; margin-left: 320px; text-align: center;height:90px; width:136px;">
+            <div style="position:relative; margin-left: 280px; text-align: center;height:90px; width:136px;">
                 <a href="#" class="logo1"><img src="<?php echo base_url(); ?>assets/img/logo2.png"  alt=""   /></a>
             </div>
-            
+        </div>
             
