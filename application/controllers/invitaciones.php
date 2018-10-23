@@ -141,6 +141,7 @@ class Invitaciones extends CI_Controller {
     }
     
     public function salida($id){
+       
         $ahora = date('Y-m-d H:i:s');
         $data =array('status'=>'no', 'salida'=>$ahora, 'patente_salida' => $this->input->post('patente_salida'));
 

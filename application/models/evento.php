@@ -311,7 +311,7 @@ public function fetch_invitados_hoy_llegaron( $criterio='') {
         }else{
             $this->db->insert('entradasalida', $data);
         }
-        
+     
     }
     public function exportData(){
         $this->db->where('exportado', 0);

@@ -116,11 +116,11 @@ echo form_open_multipart(base_url().'invitaciones/guarda', $attributes );
 										$salida = date_create($a->salida);
 										echo date_format($salida, 'd-m-Y H:i:s');
 										}else{?>
-											<a class="btn btn-primary"  data-toggle="modal" data-target="#myModal" title="">Salida</a>
+											<a class="btn btn-primary"  data-toggle="modal" data-target="#myModal<?php echo $a->id ?>" title="">Salida</a>
 										<?php } ?>
 								</tr>
 
-								<div class="modal fade" id="myModal">
+								<div class="modal fade" id="myModal<?php echo $a->id ?>">
 								  <div class="modal-dialog">
 								    <div class="modal-content">
 								      <div class="modal-header">
@@ -131,7 +131,7 @@ echo form_open_multipart(base_url().'invitaciones/guarda', $attributes );
 										$attributes = array('id' => 'form');
 										echo form_open_multipart(base_url().'invitaciones/salida/' . $a->id, $attributes );
 										?>
-								      <form action="<?php echo base_url(); ?><?php echo $a->id; ?>" method="post">
+								      
 									      <div class="modal-body">
 									        <p>Por favor escriba la patente de salida</p>
 									        <input type="text" name="patente_salida" class="form form-control" required>
