@@ -76,7 +76,9 @@
 							$nombre = ucfirst($k);
 						}elseif($k == 'otros'){
 							$nombre = ucfirst($k);
-						}else {
+						}elseif($k == 'yacare'){
+							$nombre = ucfirst('Recursos humanos');
+						}else{
 							$val = false;
 						}
 						if($val){
