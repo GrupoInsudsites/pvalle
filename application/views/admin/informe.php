@@ -78,6 +78,8 @@
 							$nombre = ucfirst($k);
 						}elseif($k == 'yacare'){
 							$nombre = ucfirst('Recursos humanos');
+						}elseif($k == 'hotel'){
+							$nombre = ucfirst('Administración');
 						}else{
 							$val = false;
 						}
@@ -237,12 +239,18 @@
 														break;
 													case 2:
 														# Bascula Gafosa
-														# Forestal, Ganaderia OTROS
+														# Forestal, Ganaderia, recursos humanos. administeración OTROS
 														if($es->forestal == 1){
 											                $empresas .= 'Forestal, ';
 											            }
 											            if($es->ganaderia == 1){
 											                $empresas .= 'Ganaderia, ';
+											            }
+											             if($es->yacare == 1){
+											                $empresas .= 'Recursos humanos, ';
+											            }
+											            if($es->hotel == 1){
+											                $empresas .= 'Administración, ';
 											            }
 											            if($es->otros == 1){
 											                $empresas .= 'Otro, ';
