@@ -92,11 +92,15 @@
                         <?php 
                         break;
                      case 2:
-                        # Forestal, Ganaderia
+                        # Gafosa
+                        # Forestal, Ganaderia, recursos humanos, Administracion
                         ?>
                         var data = [ 
                                
                                 ['Forestal ( '+<?php echo $emp['forestal']; ?> +' visitas)', <?php echo $emp['forestal']; ?>], 
+                                ['Ganadería ( '+<?php echo $emp['ganaderia']; ?>+ ' visitas)', <?php echo $emp['ganaderia']; ?>], 
+                                ['Recursos Humanos ( '+<?php echo $emp['yacare']; ?>+ ' visitas)', <?php echo $emp['yacare']; ?>], 
+                                ['Administracion ( '+<?php echo $emp['hotel']; ?>+ ' visitas)', <?php echo $emp['hotel']; ?>], 
                                 ['Ganadería ( '+<?php echo $emp['ganaderia']; ?>+ ' visitas)', <?php echo $emp['ganaderia']; ?>], 
                                
                                
